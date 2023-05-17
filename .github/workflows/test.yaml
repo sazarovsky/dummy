@@ -5,12 +5,12 @@ on:
   push:
   workflow_dispatch:
 
-  inputs:
-    INPUT_VAR:
-      description: "dummy input var"
-      default: 'masterrrr'
-      required: true
-      type: string
+inputs:
+  INPUT_VAR:
+    description: "dummy input var"
+    default: 'masterrrr'
+    required: true
+    type: string
 
 jobs:
   build:
