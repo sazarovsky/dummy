@@ -5,6 +5,13 @@ on:
   push:
   workflow_dispatch:
 
+  inputs:
+    INPUT_VAR:
+      description: "dummy input var"
+      default: 'masterrrr'
+      required: true
+      type: string
+
 jobs:
   build:
 
@@ -18,6 +25,11 @@ jobs:
       - name: Install dependencies
         run: |
           echo lalala
+
+      - name: prepare vars
+        run: |
+          git rev-parse --short HEAD >> $GITHUB_ENV
+
       - name: Printing action parameters
         run: |
           #!Printing action parameters
