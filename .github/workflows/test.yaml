@@ -19,7 +19,6 @@ jobs:
         run: |
           echo lalala
       - name: Printing action parameters
-        shell: cmd
         run: |
           ::Printing action parameters
           echo ACTIONS_BRANCH: ${{ github.action }}#%ACTIONS_BRANCH%
