@@ -1,5 +1,5 @@
 name: Python package
-run-name: "#${{github.run_number}}: ${{github.ref_name}}"
+run-name: "#${{github.run_number}} : ${{github.ref_name}}"
 
 on:
   push:
