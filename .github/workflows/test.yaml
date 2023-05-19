@@ -29,7 +29,6 @@ jobs:
         run: |
           git rev-parse --short HEAD
           cd test
-          @echo on
           echo "REVISION_ID=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Test
         run: echo ${{ env.REVISION_ID }}
