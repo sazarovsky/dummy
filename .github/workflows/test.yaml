@@ -36,6 +36,8 @@ jobs:
         run: |
           echo env.REVISION_ID
           echo $REVISION_ID
+      - name: All vars
+        run:  env
 
       - name: Printing action parameters
         shell: cmd
