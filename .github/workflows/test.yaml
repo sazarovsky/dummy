@@ -33,7 +33,9 @@ jobs:
           echo "REVISION_ID=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Test
         shell: cmd
-        run: echo ${{ env.REVISION_ID }}
+        run: |
+          echo env.REVISION_ID
+          echo %REVISION_ID%
 
       - name: Printing action parameters
         shell: cmd
