@@ -24,13 +24,12 @@ jobs:
       - name: Install dependencies
         run: |
           echo lalala
-          $env:TEST_VAR = 'MyCoolVar'
 
-      - name: Add SHORT_SHA env property with commit short sha
-        run: |
-          echo 1-> $TEST_VAR
-          echo 2-> %TEST_VAR%
-          env
+      - name: Get short SHA
+        run: echo "SHORT_SHA=$("${{ github.sha }}".SubString(0, 8))" >> $env:GITHUB_ENV
+
+      - name: Print short SHA
+        run: echo "Short SHA is ${{ env.SHORT_SHA }}"
 
       - name: Printing action parameters
         shell: cmd
