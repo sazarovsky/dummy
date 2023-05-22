@@ -21,20 +21,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: benjlevesque/short-sha@v2.2
-        id: short-sha
-        with:
-          length: 6
       - name: Install dependencies
         run: |
           echo lalala
 
-      - run: echo $SHA
-        env:
-          SHA: ${{ steps.short-sha.outputs.sha }}
-      - run: echo $SHA
-        env:
-          SHA: ${{ env.SHA }}
+      - name: Set env
+        shell: cmd
+        run: |
+          git rev-parse --short HEAD
+          cd test
+          echo "REVISION_ID=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Test
+        shell: cmd
+        run: |
+          echo env.REVISION_ID
+          echo $REVISION_ID
 
       - name: Printing action parameters
         shell: cmd
