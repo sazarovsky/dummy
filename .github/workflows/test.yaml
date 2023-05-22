@@ -30,6 +30,7 @@ jobs:
         run: |
           echo 1-> $TEST_VAR
           echo 2-> %TEST_VAR%
+          env
 
       - name: Printing action parameters
         shell: cmd
