@@ -26,14 +26,17 @@ jobs:
           echo lalala
 
       - name: Set env
+        shell: cmd
         run: |
           git rev-parse --short HEAD
           cd test
           echo "REVISION_ID=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Test
+        shell: cmd
         run: echo ${{ env.REVISION_ID }}
 
       - name: Printing action parameters
+        shell: cmd
         run: |
           #!Printing action parameters
           echo GITHUB_SHA: {{$GITHUB_SHA}}
