@@ -27,16 +27,7 @@ jobs:
       - name: Printing action parameters
         run: |
           #!Printing action parameters
-          echo GITHUB_SHA: {{$GITHUB_SHA}}
-          echo GITHUB_SHA_SHORT: $REVISION_ID
-          echo ACTIONS_BRANCH: ${{ github.action }}#%ACTIONS_BRANCH%
-          echo github.action_path: ${{ github.action_path }}
-          echo github.action_ref: ${{ github.action_ref }}
-          echo github.action_repository: ${{ github.action_repository }}
-          echo github.actor: ${{ github.actor }}
-          echo github.ref_name: ${{ github.ref_name }}
-          echo github.action: ${{ github.action }}
-          echo github.workflow: ${{ github.workflow }}
+          echo inputs.INPUT_VAR: {{$inputs.INPUT_VAR}}
   test:
     needs: build
     if: ${{ inputs.INPUT_VAR == 'true' }}
