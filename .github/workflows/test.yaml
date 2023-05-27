@@ -46,7 +46,7 @@ jobs:
           echo github.workflow: ${{ github.workflow }}
   test:
     needs: build
-    if: ${{ env.INPUT_VAR == 'true' }}
+    if: ${{ inputs.INPUT_VAR == 'true' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
