@@ -10,6 +10,11 @@ on:
         required: true
         type: boolean
   push:
+    inputs:
+      INPUT_VAR:
+        description: "dummy"
+        default: true
+        type: boolean
 
 jobs:
   build:
