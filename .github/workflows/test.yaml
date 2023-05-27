@@ -22,18 +22,18 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install dependencies
         run: |
-          echo lalala
+          echo lala
 
       - name: Printing action parameters
         run: |
           #!Printing action parameters
-          echo inputs.INPUT_VAR: %INPUT_VAR_ENV%
+          echo inputs.INPUT: ${{github.event.inputs.INPUT_VAR}}
 
       - name: Print the input name to STDOUT
         run: echo The username is ${{ env.INPUT_VAR }}
   test:
     needs: build
-    if: ${{ github.event.inputs.INPUT_VAR == 'true' }}
+    if: ${{ github.event.inputs.INPUT_VAR }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
