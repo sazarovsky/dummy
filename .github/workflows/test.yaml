@@ -38,7 +38,7 @@ jobs:
         run: echo The username is ${{ env.INPUT_VAR }}
   test:
     needs: build
-    if: ${{ github.event.inputs.INPUT_VAR == 'true' }}
+    if: ${{ github.event.inputs.INPUT_VAR == 'true' || github.event_name != 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
