@@ -6,15 +6,14 @@ on:
     inputs:
     INPUT_VAR:
       description: "dummy input var"
-      default: 'masterrrr'
+      default: false
       required: true
-      type: string
+      type: boolean
   push:
 
 jobs:
   build:
-
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.10"]
@@ -45,3 +44,15 @@ jobs:
           echo github.ref_name: ${{ github.ref_name }}
           echo github.action: ${{ github.action }}
           echo github.workflow: ${{ github.workflow }}
+  test:
+    needs: build
+    if: ${{ env.INPUT_VAR == 'true' }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10"]
+
+    steps:
+      - name: Install dependencies
+        run: |
+          echo lalala test
