@@ -11,6 +11,10 @@ on:
         type: boolean
   push:
 
+env:
+  # The current build number.
+  INPUT_VAR_ENV: "{{$inputs.INPUT_VAR}}"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,13 +31,13 @@ jobs:
       - name: Printing action parameters
         run: |
           #!Printing action parameters
-          echo inputs.INPUT_VAR: {{$inputs.INPUT_VAR}}
+          echo inputs.INPUT_VAR: %INPUT_VAR_ENV%
 
       - name: Print the input name to STDOUT
-        run: echo The username is ${{ inputs.INPUT_VAR }}
+        run: echo The username is ${{ env.INPUT_VAR }}
   test:
     needs: build
-    if: ${{ inputs.INPUT_VAR == 'true' }}
+    if: ${{ env.INPUT_VAR == 'true' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
