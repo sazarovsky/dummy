@@ -25,7 +25,6 @@ jobs:
           echo lalala
 
       - name: Printing action parameters
-        shell: cmd
         run: |
           #!Printing action parameters
           echo GITHUB_SHA: {{$GITHUB_SHA}}
