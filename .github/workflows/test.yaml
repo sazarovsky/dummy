@@ -11,10 +11,6 @@ on:
         type: boolean
   push:
 
-env:
-  # The current build number.
-  INPUT_VAR_ENV: "{{$inputs.INPUT_VAR}}"
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,7 +33,7 @@ jobs:
         run: echo The username is ${{ env.INPUT_VAR }}
   test:
     needs: build
-    if: ${{ env.INPUT_VAR == 'true' }}
+    if: ${{ github.event.inputs.INPUT_VAR == 'true' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
