@@ -28,6 +28,9 @@ jobs:
         run: |
           #!Printing action parameters
           echo inputs.INPUT_VAR: {{$inputs.INPUT_VAR}}
+
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.INPUT_VAR }}
   test:
     needs: build
     if: ${{ inputs.INPUT_VAR == 'true' }}
