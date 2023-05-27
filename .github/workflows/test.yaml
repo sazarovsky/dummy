@@ -4,11 +4,11 @@ run-name: "#${{github.run_number}} : ${{ github.ref }}"
 on:
   workflow_dispatch:
     inputs:
-    INPUT_VAR:
-      description: "dummy input var"
-      default: false
-      required: true
-      type: boolean
+      INPUT_VAR:
+        description: "dummy"
+        default: false
+        required: true
+        type: boolean
   push:
 
 jobs:
