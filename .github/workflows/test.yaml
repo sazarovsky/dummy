@@ -1,9 +1,15 @@
 name: Python package
-run-name: "#${{github.run_number}} : ${{github.ref_name}}"
+run-name: "#${{github.run_number}} : ${{github.event.inputs.MAIN_CODE_BRANCH}}"
 
 on:
   push:
   workflow_dispatch:
+    inputs:
+      MAIN_CODE_BRANCH:
+        description: "The main code branch."
+        default: 'LALALA'
+        required: true
+        type: string
 
 jobs:
   build:
