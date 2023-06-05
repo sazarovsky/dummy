@@ -17,7 +17,7 @@ on:
         type: boolean
   schedule:
     # Run every working day at 22:57 (offset by 3 minutes to avoid congestion)
-    - cron: '10 * * * *'
+    - cron: '16 * * * *'
 
 jobs:
   build:
