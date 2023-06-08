@@ -10,11 +10,6 @@ on:
         required: true
         type: boolean
   push:
-    inputs:
-      RUN_QA_INTEGRATION_TESTS:
-        description: "dummy"
-        default: true
-        type: boolean
   schedule:
     # Run every working day at 22:57 (offset by 3 minutes to avoid congestion)
     - cron: '*/2 * * * *'
@@ -38,7 +33,7 @@ jobs:
       - name: Printing action parameters
         run: |
           #!Printing action parameters
-          echo inputs.INPUT: ${{github.event.inputs.RUN_QA_INTEGRATION_TESTS}}
+          echo inputs.RUN_QA_INTEGRATION_TESTS: ${{inputs.RUN_QA_INTEGRATION_TESTS}}
 
       - name: Print the input name to STDOUT
         run: echo The username is ${{ env.RUN_QA_INTEGRATION_TESTS }}
