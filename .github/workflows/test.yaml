@@ -4,20 +4,28 @@ run-name: "#${{github.run_number}} : ${{ github.ref_name }}"
 on:
   workflow_dispatch:
     inputs:
-      INPUT_VAR:
+      RUN_QA_INTEGRATION_TESTS:
         description: "dummy"
         default: false
         required: true
         type: boolean
   push:
     inputs:
-      INPUT_VAR:
+      RUN_QA_INTEGRATION_TESTS:
         description: "dummy"
         default: true
         type: boolean
   schedule:
     # Run every working day at 22:57 (offset by 3 minutes to avoid congestion)
-    - cron: '30 * * * *'
+    - cron: '57 16 * * *'
+    inputs:
+      RUN_QA_INTEGRATION_TESTS:
+        description: "dummy"
+        default: true
+        type: boolean
+
+env:
+  RUN_QA_INTEGRATION_TESTS: ${{ inputs.RUN_QA_INTEGRATION_TESTS }}
 
 jobs:
   build:
