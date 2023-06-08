@@ -5,14 +5,14 @@ on:
   workflow_dispatch:
     inputs:
       INPUT_VAR:
-        description: "dummy"
+        description: "dummy2"
         default: false
         required: true
         type: boolean
   push:
     inputs:
       INPUT_VAR:
-        description: "dummy"
+        description: "dummy2"
         default: true
         type: boolean
   schedule:
