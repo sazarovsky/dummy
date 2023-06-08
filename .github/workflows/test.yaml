@@ -17,10 +17,10 @@ on:
         type: boolean
   schedule:
     # Run every working day at 22:57 (offset by 3 minutes to avoid congestion)
-    - cron: '10 16 * * *'
+    - cron: '45 * * * *'
 
 env:
-  RUN_QA_INTEGRATION_TESTS: ${{ inputs.RUN_QA_INTEGRATION_TESTS } || 'false'}
+  RUN_QA_INTEGRATION_TESTS: ${{ inputs.RUN_QA_INTEGRATION_TESTS } || github.event_name != 'workflow_dispatch' || 'false'}}
 
 jobs:
   build:
@@ -44,7 +44,7 @@ jobs:
         run: echo The username is ${{ env.RUN_QA_INTEGRATION_TESTS }}
   test:
     needs: build
-    if: ${{ github.event.inputs.RUN_QA_INTEGRATION_TESTS == 'true' || github.event_name != 'workflow_dispatch' }}
+    if: ${{ github.event.inputs.RUN_QA_INTEGRATION_TESTS == 'true' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
