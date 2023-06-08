@@ -12,7 +12,7 @@ on:
   push:
   schedule:
     # Run every working day at 22:57 (offset by 3 minutes to avoid congestion)
-    - cron: '*/2 * * * *'
+    - cron: '*/10 * * * *'
 
 env:
   RUN_QA_INTEGRATION_TESTS: ${{ inputs.RUN_QA_INTEGRATION_TESTS || github.event_name != 'workflow_dispatch' || 'false'}}
