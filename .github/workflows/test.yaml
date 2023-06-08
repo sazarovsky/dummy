@@ -16,11 +16,6 @@ on:
         default: true
         type: boolean
   schedule:
-    inputs:
-      RUN_QA_INTEGRATION_TESTS:
-        description: "dummy"
-        default: true
-        type: boolean
     # Run every working day at 22:57 (offset by 3 minutes to avoid congestion)
     - cron: '57 16 * * *'
 
