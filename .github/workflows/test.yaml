@@ -39,7 +39,7 @@ jobs:
         run: echo The username is ${{ env.RUN_QA_INTEGRATION_TESTS }}
   test:
     needs: build
-    if: ${{ github.event.inputs.RUN_QA_INTEGRATION_TESTS == 'true' }}
+    if: ${{ env.RUN_QA_INTEGRATION_TESTS == 'true' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
