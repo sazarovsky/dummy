@@ -17,10 +17,10 @@ on:
         type: boolean
   schedule:
     # Run every working day at 22:57 (offset by 3 minutes to avoid congestion)
-    - cron: '45 * * * *'
+    - cron: '50 * * * *'
 
 env:
-  RUN_QA_INTEGRATION_TESTS: ${{ inputs.RUN_QA_INTEGRATION_TESTS } || github.event_name != 'workflow_dispatch' || 'false'}}
+  RUN_QA_INTEGRATION_TESTS: ${{ inputs.RUN_QA_INTEGRATION_TESTS || github.event_name != 'workflow_dispatch' || 'false'}}
 
 jobs:
   build:
