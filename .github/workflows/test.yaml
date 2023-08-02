@@ -33,4 +33,4 @@ jobs:
           echo inputs.RUN_QA_INTEGRATION_TESTS: ${{inputs.RUN_QA_INTEGRATION_TESTS}}
 
       - name: Print the input name to STDOUT
-        run: echo The username is ${{ env.RUN_QA_INTEGRATION_TESTS }} 2) $RUN_QA_INTEGRATION_TESTS 3) env.RUN_QA_INTEGRATION_TESTS !
+        run: echo The username is ${{ env.RUN_QA_INTEGRATION_TESTS }} 2. $RUN_QA_INTEGRATION_TESTS 3. env.RUN_QA_INTEGRATION_TESTS !
