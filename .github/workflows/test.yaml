@@ -34,15 +34,3 @@ jobs:
 
       - name: Print the input name to STDOUT
         run: echo The username is ${{ env.RUN_QA_INTEGRATION_TESTS }} 2) $RUN_QA_INTEGRATION_TESTS 3) env.RUN_QA_INTEGRATION_TESTS !
-  test:
-    needs: build
-    if: ${{ env.RUN_QA_INTEGRATION_TESTS == 'true' }}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10"]
-
-    steps:
-      - name: Install dependencies
-        run: |
-          echo lalala test
